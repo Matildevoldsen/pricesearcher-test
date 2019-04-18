@@ -32,4 +32,10 @@ class PhotoTest extends TestCase
         $response = $this->json('GET', '/api/photos');
         $response->assertStatus(200);
     }
+
+    public function testGetJson()
+    {
+        $response = $this->json('GET', '/api/photos/data/json');
+        $response->assertStatus(200);
+    }
 }

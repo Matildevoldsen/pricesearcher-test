@@ -11,6 +11,10 @@ class VerifyCsrfToken extends Middleware
      *
      * @var bool
      */
+    protected $except = [
+        'api/*'
+    ];
+
     protected $addHttpCookie = true;
 
     /**
@@ -18,7 +22,4 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array
      */
-    protected $except = [
-        //
-    ];
 }

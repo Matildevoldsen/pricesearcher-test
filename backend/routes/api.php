@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/photos', 'PhotoController@index')->name('photos.index');
-Route::get('/photos/data/json', 'PhotoController@json')->name('photos.json');
-Route::post('/photos', 'PhotoController@store')->name('photos.store');
-Route::get('/photos/{photo}', 'PhotoController@show')->name('photos.show');
+Route::get('/photos', 'PhotoController@index')->name('photos.index')->middleware('cors');;
+Route::get('/photos/data/json', 'PhotoController@json')->name('photos.json')->middleware('cors');;
+Route::post('/photos', 'PhotoController@store')->name('photos.store')->middleware('cors');;
+Route::get('/photos/{photo}', 'PhotoController@show')->name('photos.show')->middleware('cors');;

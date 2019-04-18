@@ -17,7 +17,7 @@ class PhotoController extends Controller
     {
         $photos = Photo::all();
 
-        if (!$photos) {
+        if ($photos) {
             return response()->json($photos);
         } else {
             return response()->json([
@@ -51,11 +51,11 @@ class PhotoController extends Controller
         ]);
 
         if ($request->hasFile('photo_path')) {
-            $path = $request->file('photo_path')->store('public/photos');
+            $path = $request->file('photo_path')->storeAs('public/photos', $request->file('photo_path')->getClientOriginalName());
 
             Photo::create([
                 'description' => $request->description,
-                'photo_path' => $path
+                'photo_path' => $request->file('photo_path')->getClientOriginalName()
             ]);
         }
     }

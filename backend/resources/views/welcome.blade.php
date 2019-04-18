@@ -83,6 +83,7 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
+               <img src="{{asset('storage/photos/6FhiLIPfH9ZMfwPaQ2zVUMgBKB0yIUarDQDdtY5U.jpeg')}}">
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>

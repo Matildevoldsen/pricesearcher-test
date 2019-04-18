@@ -4,7 +4,7 @@ import './Form.css';
 class Form extends Component {
     render() {
         return (
-            <form onSubmit={this.props.onSubmit} className="form-container">
+            <form onSubmit={this.props.onSubmit} encType={this.props.encType} className="form-container">
                 {this.props.children}
             </form>
         );
