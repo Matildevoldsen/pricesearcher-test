@@ -26,6 +26,17 @@ class PhotoController extends Controller
         }
     }
 
+    public function json()
+    {
+        if (Storage::disk('local')->has('public/data/data.json')) {
+            return Storage::disk('local')->get('public/data/data.json');
+        } else {
+            return response()->json([
+                'error' => 'File does not exist',
+                'errorMessage' => 'The file data.json does not exist.'], 404);
+        }
+    }
+
     /**
      * Store a newly created resource in storage.
      *
