@@ -20,7 +20,7 @@ class UploadFiles extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8010/api/photos/data/json`)
+        axios.get(this.props.backendUrl + `/api/photos/data/json`)
             .then(res => {
                 const json = res.data;
                 this.setState({jsonFile: json});
@@ -44,7 +44,7 @@ class UploadFiles extends Component {
     }
 
     fileUpload(file, description) {
-        const url = 'http://127.0.0.1:8010/api/photos';
+        const url = this.props.backendUrl + '/api/photos';
         const formData = new FormData();
         formData.append('photo_path', file);
         formData.append('description', description);

@@ -10,8 +10,8 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <UploadFiles/>
-                <Files/>
+                <UploadFiles backendUrl="http://127.0.0.1:8000"/>
+                <Files backendUrl="http://127.0.0.1:8000"/>
             </div>
         );
     }

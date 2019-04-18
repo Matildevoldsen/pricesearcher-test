@@ -10,7 +10,7 @@ class Files extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8010/api/photos/`)
+        axios.get(this.props.backendUrl+ `/api/photos/`)
             .then(res => {
                 const json = res.data;
                 this.setState({data: json});
@@ -21,7 +21,7 @@ class Files extends Component {
         const items = this.state.data.map((item, key) =>
             <div key={key}>
                 <li>{item.description}</li>
-                <img alt={item.description} src={item.photo_path ? 'http://127.0.0.1:8010/storage/photos/' + item.photo_path : ''} key={item.id} width="400" height="400"/>
+                <img alt={item.description} src={item.photo_path ? this.props.backendUrl + '/storage/photos/' + item.photo_path : ''} key={item.id} width="400" height="400"/>
             </div>
         );
 
