@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class PhotoController extends Controller
 {
@@ -33,7 +34,19 @@ class PhotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'descr' => 'required',
+            'photo_path' => 'required'
+        ]);
+
+        if ($request->hasFile('photo_path')) {
+            $path = $request->file('photo_path')->store('public/photos');
+
+            Photo::create([
+                'descr' => $request->descr,
+                'photo_path' => $path
+            ]);
+        }
     }
 
     /**
