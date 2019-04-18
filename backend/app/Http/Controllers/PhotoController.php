@@ -46,7 +46,7 @@ class PhotoController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'descr' => 'required',
+            'description' => 'required',
             'photo_path' => 'required'
         ]);
 
@@ -54,7 +54,7 @@ class PhotoController extends Controller
             $path = $request->file('photo_path')->store('public/photos');
 
             Photo::create([
-                'descr' => $request->descr,
+                'description' => $request->description,
                 'photo_path' => $path
             ]);
         }
