@@ -14,7 +14,15 @@ class PhotoController extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::all();
+
+        if (!$photos) {
+            return response()->json($photos);
+        } else {
+            return response()->json([
+                'error' => 'Whoops, there is no data here.',
+            ]);
+        }
     }
 
     /**
