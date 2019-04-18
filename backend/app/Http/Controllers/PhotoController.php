@@ -57,6 +57,6 @@ class PhotoController extends Controller
      */
     public function show(Photo $photo)
     {
-        //
+        return $photo;
     }
 }
