@@ -1,0 +1,5 @@
+.button-grouped {
+    display: flex;
+    display: -webkit-flex;
+    width: 230px;
+}
